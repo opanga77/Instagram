@@ -1,8 +1,11 @@
-from django.urls import path
+from django.urls import url
 from .views import PostListView, PostCreateView
 
 
 urlpatterns = [
-    path('', PostListView.as_view(), name='home'),
-    path('create/',PostCreateView.as_view(), name='create_post' )
+    url(r'', PostListView.as_view(), name='home'),
+    url(r'^create/',PostCreateView.as_view(), name='create_post' )
 ]
+
+f settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
