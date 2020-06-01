@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{% block content %}
+<div id="profile-summary" class="mt-5">
+    <div id="profile-pic">
+        <img src="{{ object.avatar.url}}" alt=" {{user.username}}">
+    </div>
+    <div id="profile-desc">
+        <div class="my-3">
+            <span class="h2 mx-2">{{user.username}}</span>
+            <span><a href="{% url 'update_user' user.id%}" class="btn btn-sm btn-outline-secondary mx-3">Edit
+                    profile</a></span>
+            <span><i class='fas fa-cog fa-2x'></i>
+                <a href="#"></a>
+            </span>
+        </div>
+        <div class="my-3">
+            <span class="mx-1">{{user.images.all.count }} posts </span>
+            <span class="mx-1">0 followers </span>
+            <span class="mx-1">0 following </span>
+        </div>
+        <div class="my-3">
+            <span>{{user.email}}</span>
+            <p>Tel: {{user.telephone}}</p>
+        </div>
+    </div>
+</div>
+
+<div id=profile-posts class="my-5">
+    <h3 class="text-center border-bottom mb-5">Posts</h3>
+    <div id="my-posts mx-5">
+        <div id="photos" class="m-3">
+            {% for post in user.images.all %}
+            <img class="my-1" src="{{post.image.url}}" alt="{{post.name}}">
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{%endblock content%}
