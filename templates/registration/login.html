@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% load static%}
+{% block title %}
+Log In
+{% endblock title%}
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <img class="mobile-logo" src="{% static 'img/mobile.png'%}" alt="">
+    </div>
+    <div class="col-md-6 my-auto">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form | crispy }}
+            <button type="submit" class="btn btn-success my-2">Log In</button>
+        </form>
+        <div class="text-muted border-top mt-4">
+            <small>Don't have an account? <a href="{% url 'register'%}">Sign up</a> </small>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
