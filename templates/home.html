@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        {% for post in object_list%}
+        <div class="card">
+            <div class="card-header">
+                <span><img src="{{post.user.avatar.url}}" style="width:60px; height:60px; border-radius:50%"
+                        alt=""></span>
+                <span class="mx-4 h3">{{post.user.username}}</span>
+                <p>{{post.name}}</p>
+                <!-- {{post.user.image.url}} -->
+            </div>
+            <img src="{{post.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <form action="" method="post">
+                    {%csrf_token%}
+                    <textarea name="" id="" cols="50" rows="2" placeholder="Add comment...."></textarea>
+                    <span><button class="btn btn-outline-info">Post</button></span>
+                </form>
+            </div>
+        </div>
+
+        {% endfor%}
+    </div>
+</div>
+
+
+{% endblock content %}
