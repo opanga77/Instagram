@@ -83,6 +83,8 @@ Admin should:
 * Python3.6
 * Django  framework and postgresql database
 
+## feel free to have a look at the [live website](https://andersgram.herokuapp.com/) 
+
 ## License
 
 Copyright (c) 2020 Andason okinyi
